@@ -30,6 +30,8 @@ We will also take a look at the Certificate Revocation List (CRL) and how it is 
 
 We would also talk about the certificate chain and how to validate it.
 
+> Note: All the Python code references can be found in github.com/shubhamdp/... (TODO: add link)
+
 ### PKI (Public Key Infrastructure)
 
 PKI is a system for creating, distributing, managing, and revoking digital certificates.
@@ -53,26 +55,11 @@ the attacker can impersonate the owner of the private key. The public key can be
 
 Private key shall be stored securely. If affordable, it shall be stored in a hardware security module (HSM).
 
-<details>
-<summary> OpenSSL command and Python code to generate a private key </summary>
+- OpenSSL command generate a private key
 
 ```bash
 openssl ecparam -genkey -name prime256v1 -out key.pem
 ```
----
-```python
-from cryptography.hazmat.primitives.asymmetric import ec
-from cryptography.hazmat.primitives import serialization
-
-private_key = ec.generate_private_key(ec.SECP256R1())
-pem = private_key.private_bytes(
-    encoding=serialization.Encoding.PEM,
-    format=serialization.PrivateFormat.TraditionalOpenSSL,
-    encryption_algorithm=serialization.NoEncryption()
-)
-```
-
-</details>
 
 ### Certificate Signing Request (CSR)
 
@@ -80,8 +67,11 @@ A CSR is a message sent from an applicant to a CA to apply for a digital certifi
 Most important information in a CSR is the public key. It also contains information about the applicant,
 like the requested subject name, extensions, etc.
 
-Below is the command to generate a CSR using OpenSSL:
-
+- OpenSSL command to generate a CSR
 ```bash
 openssl req -new -newkey ec -pkeyopt ec_paramgen_curve:secp256r1 -keyout key.pem -out csr.pem
 ```
+
+### X.509 Certificate
+
+An X.509 certificate is a digital certificate that uses the X.509 standard.
