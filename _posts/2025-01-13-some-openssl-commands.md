@@ -15,6 +15,15 @@ Writing down some of the openssl commands that I use frequently.
 
 NOTE: This is just a demonstration. Please do not use these commands in production without understanding them. Printing, leaking or sharing private keys can lead to a security breach.
 
+### Table of Contents
+
+- [Serialization formats](#serialization-formats)
+- [Key Pair](#key-pair)
+- [Certificate Signing Request (CSR)](#certificate-signing-request-csr)
+- [Certificate](#certificate)
+- [ASN.1 (Abstract Syntax Notation One) parsing](#asn1-abstract-syntax-notation-one-parsing)
+- [Certificate Revocation List (CRL)](#certificate-revocation-list-crl)
+
 ### Serialization formats
 
 PEM (Privacy Enhanced Mail) and DER (Distinguished Encoding Rules) are two widely used formats for serializing cryptographic objects.
