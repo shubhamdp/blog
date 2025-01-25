@@ -8,7 +8,7 @@ author: shubhamdp
 title: "Cryptography Basics"
 date: "2024-01-08"
 tags: [writing]
-cover: ...
+cover: assets/images/cover/basics-of-cryptography.png
 ---
 
 I'm writing down the lessons that I've learned along the way in my professional journey.

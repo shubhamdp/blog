@@ -8,7 +8,7 @@ author: shubhamdp
 title: "Openssl Commands"
 date: "2025-01-13"
 tags: [writing, openssl, cryptography, security]
-cover: ...
+cover: assets/images/cover/openssl-commands.png
 ---
 
 Writing down some of the openssl commands that I use frequently.
