@@ -115,15 +115,15 @@ But how do you know that the certificate is self-signed?
     openssl x509 -noout -in ca_cert.pem -issuer -subject
     ```
 
-    <details>
-    <summary>Example Output</summary>
+<details>
+<summary>Example Output</summary>
 
-    ```
-    issuer=CN=I'm G-root
-    subject=CN=I'm G-root
-    ```
+```
+issuer=CN=I'm G-root
+subject=CN=I'm G-root
+```
 
-    </details>
+</details>
 
 - Subject key identifier (SKID) is the same as the authority key identifier (AKID).
     ```bash
@@ -131,31 +131,31 @@ But how do you know that the certificate is self-signed?
     openssl x509 -in ca_cert.pem -noout -ext authorityKeyIdentifier
     ```
 
-    <details>
-    <summary>Example Output</summary>
+<details>
+<summary>Example Output</summary>
 
-    ```
-    X509v3 Subject Key Identifier:
-        77:55:8F:AE:FB:C6:D7:92:C4:58:2B:67:AA:00:38:25:D8:70:62:1B
-    X509v3 Authority Key Identifier:
-        keyid:77:55:8F:AE:FB:C6:D7:92:C4:58:2B:67:AA:00:38:25:D8:70:62:1B
-    ```
+```
+X509v3 Subject Key Identifier:
+    77:55:8F:AE:FB:C6:D7:92:C4:58:2B:67:AA:00:38:25:D8:70:62:1B
+X509v3 Authority Key Identifier:
+    keyid:77:55:8F:AE:FB:C6:D7:92:C4:58:2B:67:AA:00:38:25:D8:70:62:1B
+```
 
-    </details>
+</details>
 
 - If we can verify the signature using the CA's public key.
     ```bash
     openssl verify -CAfile ca_cert.pem ca_cert.pem
     ```
 
-    <details>
-    <summary>Example Output</summary>
+<details>
+<summary>Example Output</summary>
 
-    ```
-    ca_cert.pem: OK
-    ```
+```
+ca_cert.pem: OK
+```
 
-    </details>
+</details>
 
 
 #### Issuing a Certificate (Intermediate CA or Leaf Certificate)
@@ -189,40 +189,40 @@ But how do you know that the certificate is issued by the particular CA?
     openssl x509 -noout -in cert.pem -issuer
     ```
 
-    <details>
-    <summary>Example Output</summary>
+<details>
+<summary>Example Output</summary>
 
-    ```
-    issuer=CN=I'm G-root
-    ```
+```
+issuer=CN=I'm G-root
+```
 
-    </details>
+</details>
 
 - Authority key identifier (AKID) is same as the CA's SKID.
     ```bash
     openssl x509 -in cert.pem -noout -ext authorityKeyIdentifier
     ```
 
-    <details>
-    <summary>Example Output</summary>
+<details>
+<summary>Example Output</summary>
 
-    ```
-    X509v3 Authority Key Identifier:
-        keyid:77:55:8F:AE:FB:C6:D7:92:C4:58:2B:67:AA:00:38:25:D8:70:62:1B
-    ```
+```
+X509v3 Authority Key Identifier:
+    keyid:77:55:8F:AE:FB:C6:D7:92:C4:58:2B:67:AA:00:38:25:D8:70:62:1B
+```
 
-    </details>
+</details>
 
 - If we can verify the signature using the CA's public key.
     ```bash
     openssl verify -CAfile ca_cert.pem cert.pem
     ```
 
-    <details>
-    <summary>Example Output</summary>
+<details>
+<summary>Example Output</summary>
 
-    ```
-    cert.pem: OK
-    ```
+```
+cert.pem: OK
+```
 
-    </details>
+</details>
